@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import Promo from './components/Promo';
 import data from './data/promo.json';
 
