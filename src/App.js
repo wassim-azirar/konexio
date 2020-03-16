@@ -1,21 +1,19 @@
 import React from 'react';
 import './App.css';
-import logo from './logo.svg';
+import Promo from './components/Promo';
+import data from './data/promo.json';
 
-function App() {
+const loadJson = () => JSON.parse(JSON.stringify(data));
+
+const App = () => {
+  let { name, startDate, endDate } = loadJson();
+
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Promo name={name} startDate={startDate} endDate={endDate}></Promo>
+      <div>Body</div>
+    </>
   );
-}
+};
 
 export default App;

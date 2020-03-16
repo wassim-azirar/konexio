@@ -1,6 +1,5 @@
 {
   "extends": ["eslint:recommended", "plugin:react/recommended"],
-  "plugins": ["react"],
   "env": {
     "browser": true,
     "es6": true
@@ -12,13 +11,19 @@
     },
     "sourceType": "module"
   },
+  "plugins": ["react"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "indent": ["error", 2],
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
-    "no-alert": ["error", "alawys"],
-    "no-console": ["error", "alawys"],
-    "no-debugger": ["error", "alawys"],
-    "no-trailing-spaces": ["error", "alawys"]
+    "no-alert": ["error"],
+    "no-console": ["error"],
+    "no-debugger": ["error"],
+    "no-trailing-spaces": ["error"]
   }
 }
