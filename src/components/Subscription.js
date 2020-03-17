@@ -7,12 +7,37 @@ import Grid from '@material-ui/core/Grid';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import SaveIcon from '@material-ui/icons/Save';
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 import React from 'react';
+import * as yup from 'yup';
+import './Subscription.scss';
+
+const validationRules = yup.object().shape({
+  email: yup
+    .string()
+    .required('Email is required')
+    .email('Invalid email address'),
+  password: yup.string().required('Password is required'),
+  passwordConfirmation: yup
+    .string()
+    .required('Password confirmation is required')
+    .oneOf([yup.ref('password'), null], 'Passwords must match'),
+  //status: yup.string().required('Please selected your status'),
+  acceptTerms: yup.boolean().oneOf([true], 'You must accept terms and conditions')
+});
+
+const useStyles = makeStyles(theme => ({
+  button: {
+    marginTop: theme.spacing(2)
+  }
+}));
 
 const Subscription = () => {
+  const classes = useStyles();
   return (
     <div>
       <Formik
@@ -26,16 +51,7 @@ const Subscription = () => {
           newsletter: true,
           acceptTerms: false
         }}
-        validate={values => {
-          const errors = {};
-          if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email) === false) {
-            errors.email = 'This email address is invalid';
-          }
-          if (values.password !== values.passwordConfirmation) {
-            errors.password = 'The password verification should match your password';
-          }
-          return errors;
-        }}
+        validationSchema={validationRules}
         onSubmit={(values, { setSubmitting }) => {
           setSubmitting(true);
           setTimeout(() => {
@@ -82,7 +98,7 @@ const Subscription = () => {
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
-                    {touched.email && errors.email}
+                    {touched.email && errors.email ? <div className='error'>{errors.email}</div> : null}
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
@@ -97,6 +113,7 @@ const Subscription = () => {
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
+                    {touched.password && errors.password ? <div className='error'>{errors.password}</div> : null}
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
@@ -111,7 +128,9 @@ const Subscription = () => {
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
-                    {touched.password && touched.passwordConfirmation && errors.password}
+                    {touched.password && touched.passwordConfirmation && errors.passwordConfirmation ? (
+                      <div className='error'>{errors.passwordConfirmation}</div>
+                    ) : null}
                   </Grid>
                   <Grid item xs={12}>
                     <FormControl variant='outlined' fullWidth>
@@ -127,6 +146,7 @@ const Subscription = () => {
                         <MenuItem value={'teacherAssistant'}>Teacher assistant</MenuItem>
                         <MenuItem value={'student'}>Student</MenuItem>
                       </Select>
+                      {touched.status && errors.status ? <div className='error'>{errors.status}</div> : null}
                     </FormControl>
                   </Grid>
                   <Grid item xs={12}>
@@ -156,9 +176,19 @@ const Subscription = () => {
                       }
                       label='I have read terms and conditions'
                     />
+                    {touched.acceptTerms && errors.acceptTerms ? (
+                      <div className='error'>{errors.acceptTerms}</div>
+                    ) : null}
                   </Grid>
                 </Grid>
-                <Button type='submit' disabled={isSubmitting} fullWidth variant='contained' color='primary'>
+                <Button
+                  className={classes.button}
+                  type='submit'
+                  disabled={isSubmitting}
+                  fullWidth
+                  variant='contained'
+                  color='primary'
+                  startIcon={<SaveIcon />}>
                   Sign Up
                 </Button>
                 <pre>{JSON.stringify(values, null, 2)}</pre>
