@@ -40,6 +40,7 @@ const useStyles = makeStyles(theme => ({
 
 const Subscription = () => {
   const classes = useStyles();
+
   return (
     <div>
       <Formik
@@ -59,7 +60,7 @@ const Subscription = () => {
           setSubmitting(true);
           setTimeout(() => {
             setSubmitting(false);
-            toast.info('Your registration has been successfully submitted', {
+            toast.info('👍 Your registration has been sent', {
               position: 'bottom-right',
               autoClose: 3000,
               hideProgressBar: false,
