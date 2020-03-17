@@ -26,7 +26,6 @@ const validationRules = yup.object().shape({
     .string()
     .required('Password confirmation is required')
     .oneOf([yup.ref('password'), null], 'Passwords must match'),
-  //status: yup.string().required('Please selected your status'),
   acceptTerms: yup.boolean().oneOf([true], 'You must accept terms and conditions')
 });
 
@@ -146,7 +145,6 @@ const Subscription = () => {
                         <MenuItem value={'teacherAssistant'}>Teacher assistant</MenuItem>
                         <MenuItem value={'student'}>Student</MenuItem>
                       </Select>
-                      {touched.status && errors.status ? <div className='error'>{errors.status}</div> : null}
                     </FormControl>
                   </Grid>
                   <Grid item xs={12}>
@@ -191,7 +189,6 @@ const Subscription = () => {
                   startIcon={<SaveIcon />}>
                   Sign Up
                 </Button>
-                <pre>{JSON.stringify(values, null, 2)}</pre>
               </form>
             </div>
           </Container>
