@@ -14,6 +14,7 @@ import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 import React from 'react';
 import * as yup from 'yup';
+import './Subscription.scss';
 
 const validationRules = yup.object().shape({
   email: yup

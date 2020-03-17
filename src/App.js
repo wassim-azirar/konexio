@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
-import Promo from './components/Promo';
-import Subscription from './components/Subscription';
+import Promo from './components/Promo/Promo';
+import Subscription from './components/Subscription/Subscription';
 import data from './data/promo.json';
 
 const loadJson = () => JSON.parse(JSON.stringify(data));
