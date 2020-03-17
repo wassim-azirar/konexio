@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import './Promo.scss';
 
 const Promo = props => {
   const { name, startDate, endDate } = props;
   return (
-    <header>
-      <div>{`Name: ${name}`}</div>
-      <div>{`Start date: ${startDate}`}</div>
-      <div>{`End date: ${endDate}`}</div>
-    </header>
+    <div>
+      <div className='bloc'>{`Nom de la promo: ${name}`}</div>
+      <div className='bloc'>{`Date de début de la formation: ${startDate}`}</div>
+      <div className='bloc'>{`Date de fin de la formation: ${endDate}`}</div>
+    </div>
   );
 };
 
