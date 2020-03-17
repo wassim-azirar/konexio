@@ -50,7 +50,6 @@ const Subscription = () => {
                   <Grid item xs={12} sm={6}>
                     <TextField
                       variant='outlined'
-                      required
                       fullWidth
                       id='firstName'
                       name='firstName'
@@ -62,7 +61,6 @@ const Subscription = () => {
                   <Grid item xs={12} sm={6}>
                     <TextField
                       variant='outlined'
-                      required
                       fullWidth
                       id='lastName'
                       name='lastName'
@@ -120,7 +118,6 @@ const Subscription = () => {
                       <InputLabel>Status</InputLabel>
                       <Select
                         variant='outlined'
-                        required
                         id='status'
                         name='status'
                         label='Status'
