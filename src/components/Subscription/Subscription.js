@@ -9,7 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import SaveIcon from '@material-ui/icons/Save';
+import SendIcon from '@material-ui/icons/Send';
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -200,7 +200,7 @@ const Subscription = () => {
                   fullWidth
                   variant='contained'
                   color='primary'
-                  startIcon={<SaveIcon />}>
+                  startIcon={<SendIcon />}>
                   Register
                 </Button>
               </form>
