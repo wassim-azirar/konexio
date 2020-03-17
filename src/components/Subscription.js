@@ -31,7 +31,8 @@ const validationRules = yup.object().shape({
 
 const useStyles = makeStyles(theme => ({
   button: {
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(2),
+    height: theme.spacing(6)
   }
 }));
 
@@ -187,7 +188,7 @@ const Subscription = () => {
                   variant='contained'
                   color='primary'
                   startIcon={<SaveIcon />}>
-                  Sign Up
+                  Register
                 </Button>
               </form>
             </div>
