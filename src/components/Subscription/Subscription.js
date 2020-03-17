@@ -11,7 +11,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import SendIcon from '@material-ui/icons/Send';
 import { Formik } from 'formik';
-import PropTypes from 'prop-types';
 import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -221,10 +220,6 @@ const Subscription = () => {
       />
     </div>
   );
-};
-
-Subscription.propTypes = {
-  name: PropTypes.string.isRequired
 };
 
 export default Subscription;

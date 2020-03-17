@@ -13,7 +13,7 @@ const App = () => {
     <>
       <Promo name={name} startDate={startDate} endDate={endDate}></Promo>
       <hr></hr>
-      <Subscription name='hello'></Subscription>
+      <Subscription></Subscription>
     </>
   );
 };
