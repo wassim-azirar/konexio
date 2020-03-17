@@ -188,7 +188,6 @@ const Subscription = () => {
                 Register
               </Button>
             </form>
-            <pre>{JSON.stringify(errors)}</pre>
           </div>
         </Container>
       )}
