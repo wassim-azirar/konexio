@@ -18,10 +18,7 @@ import * as yup from 'yup';
 import './Subscription.scss';
 
 const validationRules = yup.object().shape({
-  email: yup
-    .string()
-    .required('Email is required')
-    .email('Invalid email address'),
+  email: yup.string().required('Email is required').email('Invalid email address'),
   password: yup.string().required('Password is required'),
   passwordConfirmation: yup
     .string()
